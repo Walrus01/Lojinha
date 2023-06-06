@@ -5,4 +5,6 @@ Próxima tarefa
 
     *Alterar backgroundo color do retorno da listagem ordem para a cor primaria.
 
-    - Revisar a partir de FormListaVencto.php
+    - Revisar a partir de FormVenda (variavel)
+
+ 
