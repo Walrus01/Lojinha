@@ -1,0 +1,8 @@
+Próxima tarefa
+
+*pendências
+-onde parei
+
+    *Alterar backgroundo color do retorno da listagem ordem para a cor primaria.
+
+    - Revisar a partir de FormListaVencto.php
