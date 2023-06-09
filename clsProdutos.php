@@ -73,11 +73,7 @@ class clsCadastro
     /*-----------------------------------------------------------------------------*/
 
     private $DtInicio;
-    private $DtFim;
 
-
-
-    
     public function setDtInicio($DtI)
     {
         $this->DtInicio = $DtI;
@@ -88,6 +84,10 @@ class clsCadastro
         return $this->DtInicio;
     }
 
+    /*-----------------------------------------------------------------------------*/
+
+    private $DtFim;
+
     public function setDtFim($DtF)
     {
         $this->DtFim = $DtF;
@@ -97,6 +97,8 @@ class clsCadastro
     {
         return $this->DtFim;
     }
+
+    /*-----------------------------------------------------------------------------*/
 
     public function Incluir()
     {
@@ -124,6 +126,8 @@ class clsCadastro
         return $Retorno;
     }
 
+    /*-----------------------------------------------------------------------------*/
+
     public function Excluir()
     {
         include_once "assets/Conexao.php";
@@ -144,6 +148,8 @@ class clsCadastro
         }
         return $Retorno;
     }
+
+    /*-----------------------------------------------------------------------------*/
 
     public function ListagemOrdem()
     {
@@ -174,6 +180,8 @@ class clsCadastro
 
         return $Retorno;
     }
+
+    /*-----------------------------------------------------------------------------*/
 
     public function ListagemVencto()
     {

@@ -2,93 +2,118 @@
 
 class clsVendas
 {
-    private $CodProd;
-    private $Quantidade;
-    private $Data;
-    private $CodCli;
-    private $FormPagamento;
+    private $CodCliente;
 
-    public function setCodProd($Cod)
+    public function setCodCliente($Cli)
     {
-        $this->CodProd = $Cod;
+        $this->CodCliente = $Cli;
     }
 
-    public function getCodProd()
+    public function getCodCliente()
     {
-        return $this->CodProd;
+        return $this->CodCliente;
     }
 
-    public function setQuantidade($Qntd)
+    /*-----------------------------------------------------------------------------*/
+
+    private $CodProduto;
+
+    public function setCodProduto($Pro)
     {
-        $this->Quantidade = $Qntd;
+        $this->CodProduto = $Pro;
     }
 
-    public function getQuantidade()
+    public function getCodProduto()
     {
-        return $this->Quantidade;
+        return $this->CodProduto;
     }
 
-    public function setData($Dt)
+    /*-----------------------------------------------------------------------------*/
+
+    private $QuantVenda;
+
+    public function setQuantVenda($Qntd)
     {
-        $this->Data = $Dt;
+        $this->QuantVenda = $Qntd;
     }
 
-    public function getData()
+    public function getQuantVenda()
     {
-        return $this->Data;
+        return $this->QuantVenda;
     }
 
-    public function setCodCli($Cli)
+    /*-----------------------------------------------------------------------------*/
+
+    private $DataVenda;
+
+    public function setDataVenda($Dt)
     {
-        $this->CodCli = $Cli;
+        $this->DataVenda = $Dt;
     }
 
-    public function getCodCli()
+    public function getDataVenda()
     {
-        return $this->CodCli;
+        return $this->DataVenda;
     }
 
-    public function setFormPagamento($Pgmto)
+    /*-----------------------------------------------------------------------------*/
+
+    private $FormaPagto;
+
+    public function setFormaPagto($Pgto)
     {
-        $this->FormPagamento = $Pgmto;
+        $this->FormaPagto = $Pgto;
     }
 
-    public function getFormPagamento()
+    public function getFormaPagto()
     {
-        return $this->FormPagamento;
+        return $this->FormaPagto;
     }
 
-    public function Adicionar()
+    /*-----------------------------------------------------------------------------*/
+
+    private $FormListagemPV;
+
+    public function setFormListagemPV($FPgto)
+    {
+        $this->FormListagemPV = $FPgto;
+    }
+
+    public function getFormListagemPV()
+    {
+        return $this->FormListagemPV;
+    }
+
+    /*-----------------------------------------------------------------------------*/
+
+    public function Incluir()
     {
 
-        include_once "Conexao.php";
+        include_once "assets/Conexao.php";
 
         try {
-            $Comando = $conexao->prepare("insert into VENDAS (CodProd,Quantidade,DataVenda,CodCli,FormPagamento) values (?,?,?,?,?)");
-            $Comando->bindParam(1, $this->CodProd);
-            $Comando->bindParam(2, $this->Quantidade);
-            $Comando->bindParam(3, $this->Data);
-            $Comando->bindParam(4, $this->CodCli);
-            $Comando->bindParam(5, $this->FormPagamento);
+            $Comando = $conexao->prepare("insert into VENDAS (CodCliente,CodProduto,QuantVenda,DataVenda,FormaPagto) values (?,?,?,?,?)");
+            $Comando->bindParam(1, $this->CodCliente);
+            $Comando->bindParam(2, $this->CodProduto);
+            $Comando->bindParam(3, $this->QuantVenda);
+            $Comando->bindParam(4, $this->DataVenda);
+            $Comando->bindParam(5, $this->FormaPagto);
 
             if ($Comando->execute()) {
-                switch ($this->FormPagamento) {
+                switch ($this->FormaPagto) {
                     case 'V':
-                        $this->FormPagamento = "À Vista";
+                        $this->FormaPagto = "À Vista";
                         break;
                     case 'P':
-                        $this->FormPagamento = "À Prazo";
+                        $this->FormaPagto = "À Prazo";
                         break;
                 }
 
-                $Retorno = "Gravação com sucesso <br><br>
-
-                Código da Venda:  <br>
-                Código do Produto: "  . $this->getCodProd() . "<br>
-                Quantidade: "         . $this->getQuantidade() . "<br>
-                Data: "               . $this->getData() . "<br>
-                Código Cliente: "     . $this->getCodCli() . "<br>
-                Forma de Pagamento: " . $this->getFormPagamento();
+                $Retorno =  "<body style='background-color:#1e293b;color: white;text-align: center;margin-top: 15%'>
+                <h1>Venda cadastrada com sucesso!</h1>
+                <a href='index.php'><button>Voltar ao Menu</button></a>
+                <a href='FormProdutos.php'><button>Continuar Vendendo</button></a>
+                </body>";
             }
         } catch (PDOException $Erro) {
             $Retorno = "Erro " . $Erro->getMessage();
@@ -96,16 +121,21 @@ class clsVendas
         return $Retorno;
     }
 
-    public function Deletar()
+    public function Excluir()
     {
-        include_once "Conexao.php";
+        include_once "assets/Conexao.php";
 
         try {
-            $Comando = $conexao->prepare("delete * from VENDAS where CodProd = ?");
-            $Comando->bindParam(1, $this->CodProd);
+            $Comando = $conexao->prepare("delete * from VENDAS where CodProduto = ? and CodCliente = ?");
+            $Comando->bindParam(1, $this->CodProduto);
+            $Comando->bindParam(1, $this->CodCliente);
 
             if ($Comando->execute()) {
-                $Retorno = "Deletado com sucesso";
+                $Retorno = "<body style='background-color:#1e293b;color: white;text-align: center;margin-top: 15%'>
+                <h1>Venda deletada com sucesso!</h1>
+                <a href='index.php'><button>Voltar ao Menu</button></a>
+                <a href='FormProdutos.php'><button>Continuar Deletando</button></a>
+                </body>";
             }
         } catch (PDOException $Erro) {
             $Retorno = "Erro " . $Erro->getMessage();
@@ -115,31 +145,35 @@ class clsVendas
 
     public function ListaPV()
     {
-        include_once "Conexao.php";
+        include_once "assets/Conexao.php";
 
-        if ($this->FormPagamento == 'V') {
+        try {
 
-            try {
+            $Comando = $conexao->prepare("select * from VENDAS where FormaPagto = ? order by CodVenda");
+            $Comando->bindParam(1, $this->FormListagemPV);
+            $Comando->execute();
+            $Retorno = $Comando->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $Erro) {
+            $Retorno = "Erro " . $Erro->getMessage();
+        }
 
-                $Comando = $conexao->prepare("select * from VENDAS order by CodVendas where FormPagamento = ?");
-                $Comando->bindParam(1, $this->FormPagamento);
-                $Comando->execute();
-                $Retorno = $Comando->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $Erro) {
-                $Retorno = "Erro " . $Erro->getMessage();
-            }
-        } elseif ($this->FormPagamento == 'P') {
-            try {
+        return $Retorno;
+    }
 
-                $Comando = $conexao->prepare("select * from VENDAS order by CodVendas where FormPagamento = ?");
-                $Comando->bindParam(1, $this->FormPagamento);
-                $Comando->execute();
-                $Retorno = $Comando->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $Erro) {
-                $Retorno = "Erro " . $Erro->getMessage();
-            }
-        } else {
-            $Retorno = "Selecione uma das opções para que seja feita uma lista ";
+    public function ListaVendaGeral()
+    {
+        include_once "assets/Conexao.php";
+
+        try {
+
+            $Comando = $conexao->prepare("select VENDAS.CodVenda, VENDAS.CodCliente, VENDAS.CodProduto, PRODUTOS.DescProduto, VENDAS.QuantVenda, VENDAS.DataVenda, VENDAS.FormaPagto
+            from VENDAS
+            INNER JOIN PRODUTOS on VENDAS.CodProduto = PRODUTOS.CodProduto
+            order by CodVenda;");
+            $Comando->execute();
+            $Retorno = $Comando->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $Erro) {
+            $Retorno = "Erro " . $Erro->getMessage();
         }
 
         return $Retorno;

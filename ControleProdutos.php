@@ -26,9 +26,11 @@ $Cad->setDtFim($DtFim);
 if (isset($_GET["Incluir"])) {
 
     echo $Cad->Incluir();
+
 } elseif (isset($_GET["Excluir"])) {
 
     echo $Cad->Excluir();
+    
 } elseif (isset($_GET["ListaOrdem"])) {
 
     $Dados = $Cad->ListagemOrdem();

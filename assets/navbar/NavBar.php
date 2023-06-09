@@ -32,7 +32,7 @@
               <hr class="dropdown-divider">
             </li>
             <li><a class="dropdown-item" href="FormListaVendaPV.php">Lista de Pagamento (V/P)</a></li>
-            <li><a class="dropdown-item" href="FormListaVendaPV.php">Lista de Vendas</a></li>
+            <li><a class="dropdown-item" href="ControleVendas.php">Lista de Vendas</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">

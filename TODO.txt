@@ -3,8 +3,8 @@ Próxima tarefa
 *pendências
 -onde parei
 
-    *Alterar backgroundo color do retorno da listagem ordem para a cor primaria.
+    *Alterar backgroundo color do retorno da listagem para a cor primaria.
 
-    - Revisar a partir de FormVenda (variavel)
+    - Revisar a partir de Clientes
 
  

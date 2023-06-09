@@ -29,7 +29,16 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <input class="color-primary form-control border border-light p-2" type="number" name="CodProd" id="CodProd" min=1 max=99999 step="0" placeholder="Código do Produto">
+                                <div class="input-group">
+                                    <input class="color-primary form-control border border-light p-2" type="number" name="CodCliente" id="CodCliente" min=1 max=999999 step="0" placeholder="Código Cliente">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <input class="color-primary form-control border border-light p-2" type="number" name="CodProduto" id="CodProduto" min=1 max=99999 step="0" placeholder="Código do Produto">
                             </div>
                         </div>
                     </div>
@@ -37,7 +46,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input class="color-primary form-control border border-light p-2" type="number" name="Quantidade" id="Quantidade" min=1 max=9999 step="0" placeholder="Quantidade">
+                                    <input class="color-primary form-control border border-light p-2" type="number" name="QuantVenda" id="QuantVenda" min=1 max=9999 step="0" placeholder="Quantidade">
                                 </div>
                             </div>
                         </div>
@@ -46,30 +55,22 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input class="color-primary form-control border border-light p-2" type="text" placeholder="Data" name="Data" id="Data" onfocus="(this.type='date')">
+                                    <input class="color-primary form-control border border-light p-2" type="text" name="DataVenda" id="DataVenda" placeholder="Data" onfocus="(this.type='date')">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input class="color-primary form-control border border-light p-2" type="number" name="CodCli" id="CodCli" placeholder="Código Cliente" min=1 max=999999 step="0">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <label for="basic-url" class="color-tertiary form-label mt-3">Forma de pagamento:</label>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="FormPagamento" id="À vista" value="V">
+                                    <input class="form-check-input" type="radio" name="FormaPagto" id="Avista" value="V">
                                     <label class="color-tertiary form-check-label" for="Avista">Vista</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="FormPagamento" id="A prazo" value="P">
+                                    <input class="form-check-input" type="radio" name="FormaPagto" id="Aprazo" value="P">
                                     <label class="color-tertiary form-check-label" for="Aprazo">Prazo</label>
                                 </div>
                             </div>
