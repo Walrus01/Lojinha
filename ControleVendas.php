@@ -4,12 +4,12 @@ include_once "clsVendas.php";
 
 $Venda = new clsVendas();
 
-$CodCliente     = filter_input(INPUT_GET, "CodCliente", FILTER_VALIDATE_INT);
-$CodProduto     = filter_input(INPUT_GET, "CodProduto", FILTER_VALIDATE_INT);
-$QuantVenda     = filter_input(INPUT_GET, "QuantVenda", FILTER_VALIDATE_INT);
-$DataVenda      = filter_input(INPUT_GET, "DataVenda");
-$FormaPagto     = filter_input(INPUT_GET, "FormaPagto");
-$FormListagemPV = filter_input(INPUT_GET, "FormListagemPV");
+$CodCliente       = filter_input(INPUT_GET, "CodCliente", FILTER_VALIDATE_INT);
+$CodProduto       = filter_input(INPUT_GET, "CodProduto", FILTER_VALIDATE_INT);
+$QuantVenda       = filter_input(INPUT_GET, "QuantVenda", FILTER_VALIDATE_INT);
+$DataVenda        = filter_input(INPUT_GET, "DataVenda");
+$FormaPagto       = filter_input(INPUT_GET, "FormaPagto");
+$FormListagemPV   = filter_input(INPUT_GET, "FormListagemPV");
 
 $Venda->setCodCliente($CodCliente);
 $Venda->setCodProduto($CodProduto);
@@ -21,12 +21,14 @@ $Venda->setFormListagemPV($FormListagemPV);
 if (isset($_GET["Incluir"])) {
 
   echo $Venda->Incluir();
+
 } elseif (isset($_GET["Excluir"])) {
 
   echo $Venda->Excluir();
+  
 } elseif (isset($_GET["ListaPV"])) {
 
-  $Dados = $Venda->ListaPV();
+  $Dados = $Venda->ListaVendaPV();
 
   if (empty($Dados)) {
 
@@ -40,14 +42,16 @@ if (isset($_GET["Incluir"])) {
     echo "<div class='row justify-content-center'>";
     echo "<div class='col-md-9'>";
     echo "<table class='table table-primary table-striped' style='width: 800px;'>";
-    echo "<thead class='thead-dark'><tr><th>Código venda</th><th>Código Cliente</th><th>Código Produto</th><th>Quantidade</th><th>Data</th><th>Forma de Pagamento</th></tr></thead>";
+    echo "<thead class='thead-dark'><tr><th>Código Venda</th><th>Código Cliente</th><th>Nome</th><th>Código Produto</th><th>Descrição Produto</th><th>Quantidade</th><th>Data</th><th>Forma de Pagamento</th></tr></thead>";
     echo "<tbody>";
 
     foreach ($Dados as $Dd) {
       echo "<tr>";
       echo "<td>{$Dd['CodVenda']}</td>";
       echo "<td>{$Dd['CodCliente']}</td>";
+      echo "<td>{$Dd['NomeCliente']}</td>";
       echo "<td>{$Dd['CodProduto']}</td>";
+      echo "<td>{$Dd['DescProduto']}</td>";
       echo "<td>{$Dd['QuantVenda']}</td>";
       echo "<td>{$Dd['DataVenda']}</td>";
       echo "<td>{$Dd['FormaPagto']}</td>";

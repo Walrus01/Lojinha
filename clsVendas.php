@@ -132,10 +132,10 @@ class clsVendas
 
             if ($Comando->execute()) {
                 $Retorno = "<body style='background-color:#1e293b;color: white;text-align: center;margin-top: 15%'>
-                <h1>Venda deletada com sucesso!</h1>
-                <a href='index.php'><button>Voltar ao Menu</button></a>
-                <a href='FormProdutos.php'><button>Continuar Deletando</button></a>
-                </body>";
+                            <h1>Venda deletada com sucesso!</h1>
+                            <a href='index.php'><button>Voltar ao Menu</button></a>
+                            <a href='FormProdutos.php'><button>Continuar Deletando</button></a>
+                            </body>";
             }
         } catch (PDOException $Erro) {
             $Retorno = "Erro " . $Erro->getMessage();
@@ -143,13 +143,18 @@ class clsVendas
         return $Retorno;
     }
 
-    public function ListaPV()
+    public function ListaVendaPV()
     {
         include_once "assets/Conexao.php";
 
         try {
 
-            $Comando = $conexao->prepare("select * from VENDAS where FormaPagto = ? order by CodVenda");
+            $Comando = $conexao->prepare("select VENDAS.CodVenda, VENDAS.CodCliente, CLIENTES.NomeCliente, VENDAS.CodProduto, PRODUTOS.DescProduto, VENDAS.QuantVenda, VENDAS.DataVenda, VENDAS.FormaPagto
+                                        from VENDAS
+                                        INNER JOIN PRODUTOS on VENDAS.CodProduto = PRODUTOS.CodProduto
+                                        INNER JOIN CLIENTES on VENDAS.CodCliente = CLIENTES.CodCliente
+                                        WHERE FormaPagto = ?
+                                        order by CodVenda;");
             $Comando->bindParam(1, $this->FormListagemPV);
             $Comando->execute();
             $Retorno = $Comando->fetchAll(PDO::FETCH_ASSOC);
@@ -167,10 +172,10 @@ class clsVendas
         try {
 
             $Comando = $conexao->prepare("select VENDAS.CodVenda, VENDAS.CodCliente, CLIENTES.NomeCliente, VENDAS.CodProduto, PRODUTOS.DescProduto, VENDAS.QuantVenda, VENDAS.DataVenda, VENDAS.FormaPagto
-            from VENDAS
-            INNER JOIN PRODUTOS on VENDAS.CodProduto = PRODUTOS.CodProduto
-            INNER JOIN CLIENTES on VENDAS.CodCliente = CLIENTES.CodCliente
-            order by CodVenda;");
+                                        from VENDAS
+                                        INNER JOIN PRODUTOS on VENDAS.CodProduto = PRODUTOS.CodProduto
+                                        INNER JOIN CLIENTES on VENDAS.CodCliente = CLIENTES.CodCliente
+                                        order by CodVenda;");
             $Comando->execute();
             $Retorno = $Comando->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $Erro) {

@@ -25,7 +25,7 @@
         <div class="container mt-5 mb-5 d-flex justify-content-center">
             <div class="color-secondary card px-4 py-5 border border-light p-2 rounded-3" data-bs-theme="dark">
                 <div class="card-body">
-                    <h4 class="color-tertiary card-title mb-3">Cadastro de Clientes</h4>
+                    <h4 class="color-tertiary card-title mb-3">CADASTRO DE CLIENTES</h4>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
@@ -50,7 +50,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <div class="input-group"> <input class="color-primary form-control border border-light p-2" type="number" placeholder="CPF" name="CPF" id="CPF" min=10000000000 max=99999999999 step="0"> </div><br>
+                                <div class="input-group"> <input class="color-primary form-control border border-light p-2" type="number" placeholder="CPF" name="CPFCliente" id="CPFCliente" min=10000000000 max=99999999999 step="0"> </div><br>
                             </div>
                         </div>
                     </div>

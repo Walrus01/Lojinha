@@ -44,7 +44,7 @@
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="#">Lista de Clientes</a></li>
+            <li><a class="dropdown-item" href="ControleClientes.php">Lista de Clientes</a></li>
           </ul>
         </li>
       </ul>

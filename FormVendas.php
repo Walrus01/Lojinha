@@ -25,7 +25,7 @@
         <div class="container mt-5 mb-5 d-flex justify-content-center">
             <div class="color-secondary card px-4 py-4 border border-light p-2 rounded-3" data-bs-theme="dark">
                 <div class="card-body">
-                    <h4 class="color-tertiary card-title mb-3">Venda de Produtos</h4>
+                    <h4 class="color-tertiary card-title mb-3">VENDA DE PRODUTOS</h4>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">

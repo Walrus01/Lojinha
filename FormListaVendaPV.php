@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Venda PV</title>
+    <title>Lista de Venda (P/V)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css" media="screen" />
     <link rel="shortcut icon" href="assets/images/bag.png">
@@ -24,7 +24,7 @@
         <div class="container mt-5 mb-5 d-flex justify-content-center">
             <div class="color-secondary card px-4 py-4 border border-light p-2 rounded-3" data-bs-theme="dark">
                 <div class="card-body">
-                    <h4 class="color-tertiary card-title mb-3">Listagem de Produtos Vendidos</h4>
+                    <h4 class="color-tertiary card-title mb-3">LISTA FORMA PAGAMENTO</h4>
                     <label for="basic-url" class="color-tertiary form-label">Forma de Listagem:</label>
                     <div class="row">
                         <div class="col-sm-12">

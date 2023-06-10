@@ -25,7 +25,7 @@
         <div class="container mt-5 mb-5 d-flex justify-content-center">
             <div class="color-secondary card px-4 py-4 border border-light p-2 rounded-3" data-bs-theme="dark">
                 <div class="card-body">
-                    <h4 class="color-tertiary card-title mb-3">LISTAGEM EM ORDEM</h4>
+                    <h4 class="color-tertiary card-title mb-3">LISTA EM ORDEM</h4>
                     <label for="basic-url" class="color-tertiary form-label">Selecione um filtro:</label>
                     <div class="row">
                         <div class="col-sm-12">
