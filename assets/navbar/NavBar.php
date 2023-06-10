@@ -40,7 +40,7 @@
             Cliente
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="FormCadastroClientes.php">Cadastro de Clientes</a></li>
+            <li><a class="dropdown-item" href="FormClientes.php">Cadastro de Clientes</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>

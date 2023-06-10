@@ -126,9 +126,9 @@ class clsVendas
         include_once "assets/Conexao.php";
 
         try {
-            $Comando = $conexao->prepare("delete * from VENDAS where CodProduto = ? and CodCliente = ?");
+            $Comando = $conexao->prepare("delete from VENDAS where CodProduto = ? and CodCliente = ?");
             $Comando->bindParam(1, $this->CodProduto);
-            $Comando->bindParam(1, $this->CodCliente);
+            $Comando->bindParam(2, $this->CodCliente);
 
             if ($Comando->execute()) {
                 $Retorno = "<body style='background-color:#1e293b;color: white;text-align: center;margin-top: 15%'>
@@ -166,9 +166,10 @@ class clsVendas
 
         try {
 
-            $Comando = $conexao->prepare("select VENDAS.CodVenda, VENDAS.CodCliente, VENDAS.CodProduto, PRODUTOS.DescProduto, VENDAS.QuantVenda, VENDAS.DataVenda, VENDAS.FormaPagto
+            $Comando = $conexao->prepare("select VENDAS.CodVenda, VENDAS.CodCliente, CLIENTES.NomeCliente, VENDAS.CodProduto, PRODUTOS.DescProduto, VENDAS.QuantVenda, VENDAS.DataVenda, VENDAS.FormaPagto
             from VENDAS
             INNER JOIN PRODUTOS on VENDAS.CodProduto = PRODUTOS.CodProduto
+            INNER JOIN CLIENTES on VENDAS.CodCliente = CLIENTES.CodCliente
             order by CodVenda;");
             $Comando->execute();
             $Retorno = $Comando->fetchAll(PDO::FETCH_ASSOC);

@@ -79,13 +79,14 @@ if (isset($_GET["Incluir"])) {
     echo "<div class='row justify-content-center'>";
     echo "<div class='col-md-12'>";
     echo "<table class='table table-primary table-striped' style='width: 1150px;'>";
-    echo "<thead class='thead-dark'><tr><th>Código Venda</th><th>Código Cliente</th><th>Código Produto</th><th>Descrição Produto</th><th>Quantidade</th><th>Data</th><th>Forma de Pagamento</th></tr></thead>";
+    echo "<thead class='thead-dark'><tr><th>Código Venda</th><th>Código Cliente</th><th>Nome</th><th>Código Produto</th><th>Descrição Produto</th><th>Quantidade</th><th>Data</th><th>Forma de Pagamento</th></tr></thead>";
     echo "<tbody>";
 
     foreach ($Dados as $Dd) {
       echo "<tr>";
       echo "<td>{$Dd['CodVenda']}</td>";
       echo "<td>{$Dd['CodCliente']}</td>";
+      echo "<td>{$Dd['NomeCliente']}</td>";
       echo "<td>{$Dd['CodProduto']}</td>";
       echo "<td>{$Dd['DescProduto']}</td>";
       echo "<td>{$Dd['QuantVenda']}</td>";

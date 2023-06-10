@@ -4,7 +4,8 @@ Próxima tarefa
 -onde parei
 
     *Alterar backgroundo color do retorno da listagem para a cor primaria.
-
-    - Revisar a partir de Clientes
+    *retrabalhar ultima lista de VENDAS
+    
+    - Revisar a partir de Clientes/controle
 
  
